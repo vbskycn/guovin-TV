@@ -22,7 +22,7 @@ favorite_list = [
     "CCTV4K",
     "CCTV8k",
 ]
-open_online_search = ture
+open_online_search = True
 favorite_page_num = 5
 default_page_num = 3
 urls_limit = 10
