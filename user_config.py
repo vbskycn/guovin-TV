@@ -41,7 +41,7 @@ subscribe_urls = [
     "https://github.zhoujie218.top/raw.githubusercontent.com/dxawi/0/main/tvlive.txt",
     "http://home.jundie.top:81/Cat/tv/live.txt",
     "https://weixine.net/tv/ysclive.txt",
-    "https://raw.githubusercontent.com/tangchunwei/iptv-list/main/index.txt",
+    "https://github.zhoujie218.top/https://raw.githubusercontent.com/tangchunwei/iptv-list/main/index.txt",
     "https://download.kstore.space/download/2863/live.txt",
     "https://github.zhoujie218.top/https://raw.githubusercontent.com/vbskycn/guovin-TV/master/result.txt",
     "https://github.zhoujie218.top/https://raw.githubusercontent.com/vbskycn/guovin-TV/master/mylist.txt",
