@@ -40,6 +40,7 @@ CGTN纪录,https://yang-1989.eu.org/live/cgtnjl
 CGTN西语,http://livees.cgtn.com/1000e/prog_index.m3u8
 CGTN阿语,http://livear.cgtn.com/1000a/prog_index.m3u8
 
+
 卫视频道,#genre#
 安徽卫视,http://gzcbn.ch-cdn.gitv.tv/gitv_escape/G_ANHUI-HD-265-8M/G_ANHUI-HD-265-8M.m3u8
 北京卫视,http://gzcbn.ch-cdn.gitv.tv/gitv_escape/G_BEIJING-HD-265-8M/G_BEIJING-HD-265-8M.m3u8
@@ -89,6 +90,7 @@ CGTN阿语,http://livear.cgtn.com/1000a/prog_index.m3u8
 黑龙江卫视,http://gzcbn.ch-cdn.gitv.tv/gitv_escape/G_HEILONGJIANG-HD-265-8M/G_HEILONGJIANG-HD-265-8M.m3u8
 内蒙古卫视,http://gzcbn.ch-cdn.gitv.tv/gitv_escape/G_NEIMENGGU/G_NEIMENGGU.m3u8
 
+
 儿童频道,#genre#
 优漫卡通,http://219.135.208.218:8083/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0
 卡酷少儿,http://gzcbn.ch-cdn.gitv.tv/gitv_escape/G_KAKU/G_KAKU.m3u8
@@ -106,7 +108,6 @@ CGTN阿语,http://livear.cgtn.com/1000a/prog_index.m3u8
 
 
 体育频道,#genre#
-
 CCTV5+,http://tc-tct.douyucdn2.cn/dyliveflv1a/488743rAHScWyyII_2000.flv
 CCTV5,http://tc-tct.douyucdn2.cn/dyliveflv1a/5040227raXQRnvWY_2000.flv
 哒啵赛事,http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_6660.m3u8
@@ -915,6 +916,7 @@ BTV影视,http://115.171.86.251:9901/tsfile/live/16029_1.m3u8?key=txiptv&playliv
 佛山影视,http://www.namewee.xyz/gudou.php?id=foshanyingshiHD_4500
 顺德综合,http://www.namewee.xyz/gudou.php?id=shundeHD_4500
 珠海,http://www.namewee.xyz/gudou.php?id=zhuhaiHD1_4500
+
 
 
 港澳台,#genre#
