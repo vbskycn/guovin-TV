@@ -24,9 +24,9 @@ favorite_list = [
     "CCTV8k",
 ]
 open_online_search = True
-favorite_page_num = 5
-default_page_num = 3
-urls_limit = 10
+favorite_page_num = 3
+default_page_num = 2
+urls_limit = 5
 open_sort = True
 response_time_weight = 0.5
 resolution_weight = 0.5
