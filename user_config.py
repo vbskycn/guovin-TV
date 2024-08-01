@@ -1,4 +1,5 @@
 open_update = True
+open_use_old_result = True
 source_file = "user_demo.txt"
 final_file = "mylist.txt"
 favorite_list = [
@@ -62,4 +63,5 @@ open_multicast = True
 region_list = ["all"]
 open_driver = True
 open_proxy = False
+open_use_old_result = True
 
