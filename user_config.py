@@ -35,7 +35,7 @@ resolution_weight = 0.5
 recent_days = 30
 ipv_type = "ipv4"
 domain_blacklist = ["epg.pw"]
-url_keywords_blacklist = [".php","rtp","key","token"]
+url_keywords_blacklist = [".php","rtp","key","githubusercontent","token"]
 open_subscribe = True
 subscribe_urls = [
     "https://github.zhoujie218.top/raw.githubusercontent.com/ssili126/IPTV/main/cy.txt",
@@ -65,4 +65,3 @@ region_list = ["all"]
 open_driver = True
 open_proxy = False
 open_use_old_result = True
-
