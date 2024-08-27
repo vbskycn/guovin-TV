@@ -1,0 +1,428 @@
+港澳台,#genre#
+凤凰中文,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰资讯,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰香港,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+香港卫视,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+无线新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+无线资讯,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+有线新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+有线资讯,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+翡翠台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+明珠台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+J2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+RTHK32,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS欢乐,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS亚洲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+香港佛陀,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+MOMO1台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+MOMO2台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+大爱1台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+大爱2台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+台视新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中视新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立台湾,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+公视新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+寰宇新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+年代新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民视新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+非凡新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+亚洲新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+东森新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+东森美洲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天国际,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳视卫星,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳视澳门,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳门信息,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳门卫视,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳门莲花,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳门葡语,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳门资讯,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+纬来体育,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+爱尔达体育,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELEVEN体育,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+星河台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+鳳凰香港,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+鳳凰衛視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+鳳凰資訊,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB翡翠,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB明珠,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB plus,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Viutv 6,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Viu TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Viutv,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB直播,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB J2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+NOWTV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HKIBC,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HOY,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+18臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HOY資訊臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+港台電視31,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+港台电视32,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+星空衛視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+无线新闻台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+无线财经体育资讯台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ViuTVsix,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰中文台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰资讯台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰香港台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB星河(粤),https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳門蓮花,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+鳳凰電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立都会,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+番薯台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+人间卫视,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HOYTV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HKC18,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰电影台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+now新闻台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+18台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HKC 18,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HOY TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HandsUp,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+莲花卫视,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB财经台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB新闻台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB直播台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+亚洲武侠频道,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+面包台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+VIU6,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+有线,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+有线新,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+香港32,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+新加坡中文台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+星卫电影台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天娱乐,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+环球电视台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+番薯,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+大立电视,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+华语电视,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+长城精品,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Music TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+好消息综合台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+时尚台FTV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+国家地理,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+国家地理野生,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+探索亚洲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰电影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBRICS,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+香港文旅,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰-资讯,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰-中文,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+凤凰-香港,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+創世電視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳亞衛視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB亞洲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB粵語片,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB功夫臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+亞美衛視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+新時代東部,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+新時代2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+城市電視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB星河,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB經典,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+新聞頻道,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+非凡新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+運通財經,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+臺視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+華視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+公視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+好消息,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+客家電視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+緯來綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+八大第一,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+八大綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立臺灣,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立都會,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+華藝綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森超視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森購物2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天娛樂,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS歡樂,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+JET綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森購物1,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+緯來育樂,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+緯來日本,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+國興衛視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+信大電視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+八大娛樂,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+公視3臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+好消息2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+高點綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天亞洲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視綜藝,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視第一臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視臺灣,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華日韓,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+豬哥亮歌廳秀,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+豬哥會社,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA娛樂臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+韓國娛樂,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天國際,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天育樂,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天日本,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天歡樂,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天資訊,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中視經典,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中視菁採,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS精采,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+年代much,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVN臺灣版,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森購物3,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+MOMO購物1,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+MOMO購物2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+美好購物1,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+美好購物2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+大立電視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+國會頻道１,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+國會頻道2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+海豚綜合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+臺灣地震監視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+誠心電視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+第一名電視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中視經典綜藝,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立新聞+,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森新聞4,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森亞洲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天新聞2臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森財經,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+華視新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立iNEWS,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+臺視新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中視新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+寰宇新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+寰宇財經,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+公視新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+寰宇臺灣,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+年代新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+壹新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+鏡新聞mnews,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立國際,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+CBN News,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+八大戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+緯來戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+緯來電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HBO HD,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森洋片,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+壹電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+好萊塢電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+愛爾達影劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+CineMAX,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天映畫,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖洋戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+緯來精彩,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+EYE戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華偶像,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+霹靂臺灣,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+美亞電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視影劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HBOSignature,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HBO Hits,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+採昌影劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+影迷數位電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華經典,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍翔時代,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+AXN臺灣,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+天映經典,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+公視戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+AXN亞洲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+華納電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天戲劇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華洋片,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+緯來體育,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Eleven Sport 1,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Eleven Sport 2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA體育1,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA體育2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA體育3,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA體育3臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA體育4,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Z頻道,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯無限,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯無限2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯運動1,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯運動2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+亞洲旅遊,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+探索頻道,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+大陸尋奇,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+動物星球,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視旅遊,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+探索亞洲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+探索科學,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+探索EVE,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TaiwanPlus,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+視納華仁紀實,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+美食星球,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+EYE旅遊,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+MOMO親子,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森幼幼（備）,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森幼幼,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森亞洲呦呦,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+CN卡通,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖洋卡通,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天卡通,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+大愛一臺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS 新聞台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS 綜藝台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS 歡樂台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS 精采台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVBS 台劇台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+三立綜合台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+台視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+台視新聞台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+台視財經台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視第一台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視新聞台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視台灣台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視影劇台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視旅遊台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民視綜藝台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中視新聞台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中視經典台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中視菁采台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天新聞台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天亞洲台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+非凡新聞台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+非凡商業台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森財經新聞,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+寰宇新聞台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+寰宇新聞台灣台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+寰宇財經台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+鏡電視新聞台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天綜合台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天國際台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天戲劇台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天日本台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天映畫台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天卡通台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天育樂台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天資訊台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天電影台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖天歡樂台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華偶像台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華卡通台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華戲劇台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華日韓台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華經典台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+龍華電影台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖洋戲劇台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+八大精彩台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+八大綜藝台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯運動一台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯運動二台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯無限台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯無限二台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯網球台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯高球台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯高球二台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+博斯魅力台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA 娛樂台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA 生活旅遊,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+ELTA生活英語,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+CNBC Asia 財經台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+亞洲旅遊台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+GINX Esports TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TechStorm,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+時尚運動X,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+智林體育台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TraceSports,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+影迷數位紀實台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+影迷數位電影台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+AMC 最愛電影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+CatchPlay 電影台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+公視戲劇台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+采昌影劇台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+台灣戲劇台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+經典電影台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+CinemaWorld,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HITS 頻道,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Rock Action,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+金光布袋戲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+霹靂布袋戲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Nickelodeon,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Nick Jr. 兒童頻道,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+i-Fun 動漫台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+兒童卡通台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+精選動漫台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+經典卡通台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+達文西頻道,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+MOMO 親子台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Mezzo Live,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Trace Urban,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Global Trekker,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+LUXE TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Pet Club TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TV5MONDE Style,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+車迷 TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Love Nature,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Fun 探索娛樂台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+幸福空間居家台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Arirang TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Bloomberg TV,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+VOA 美國之音,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+DW德國之聲,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+第1商業台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+原住民族電視台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+客家電視台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+滾動力 Rollor,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+好消息2台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+大愛電視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+大愛電視2,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+人間衛視,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+國會頻道1,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森購物一台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森購物二台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森購物三台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+東森購物四台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+镜新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳门-MACAU,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+戏曲台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+TVB娱乐新闻台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+千禧经典台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Thrill,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+now财经台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+Hands Up,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+粤语片台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+亚洲剧台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+功夫台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+HOY资讯台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+黄金翡翠台,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+中天综合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+民视台湾,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+东森超视,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+东森电影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+东森戏剧,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+东森洋片,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+靖宇综合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳门有线互动新闻,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳视葡语,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳视体育,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳视资讯,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+澳视综艺,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+八大戏剧,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+八大综合,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+好莱坞电影,https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV04.m3u8
+	
+	
