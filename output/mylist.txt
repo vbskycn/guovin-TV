@@ -13,6 +13,6 @@
 澳视澳门,http://61.244.22.5/ch1/ch1.live/playelist.m3u8$1280x720
 澳门莲花,http://61.244.22.5/ch3/ch3.live/chunklist.m3u8$1280x720
 澳门资讯,http://61.244.22.5/ch5/info_ch5.live/master.m3u8$1280x720
-澳门资讯,http://61.244.22.5/ch5/info_ch5.live/playlist.m3u8$1280x720
 澳门资讯,http://61.244.22.5/ch5/info_ch5.live/chunklist_w1306647434.m3u8$1280x720
+澳门资讯,http://61.244.22.5/ch5/info_ch5.live/playlist.m3u8$1280x720
 自定义频道,#genre#
