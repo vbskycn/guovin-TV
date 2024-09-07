@@ -1,10 +1,12 @@
 import asyncio
-from utils.config import config, copy_config
+from utils.config import config
 from utils.channel import (
     get_channel_items,
     append_total_data,
     process_sort_channel_list,
     write_channel_to_file,
+    setup_logging,
+    cleanup_logging,
 )
 from utils.tools import (
     update_file,
@@ -12,7 +14,6 @@ from utils.tools import (
     get_ip_address,
     convert_to_m3u,
     get_result_file_content,
-    merge_objects,
 )
 from updates.subscribe import get_channels_by_subscribe_urls
 from updates.multicast import get_channels_by_multicast
@@ -26,9 +27,11 @@ from time import time
 from flask import Flask, render_template_string
 import sys
 import shutil
-from collections import defaultdict
+import atexit
 
 app = Flask(__name__)
+
+atexit.register(cleanup_logging)
 
 
 @app.route("/")
@@ -60,23 +63,22 @@ class UpdateSource:
         self.run_ui = False
         self.tasks = []
         self.channel_items = {}
-        self.subscribe_result = {}
-        self.multicast_result = {}
-        self.hotel_tonkiang_result = {}
         self.hotel_fofa_result = {}
+        self.hotel_tonkiang_result = {}
+        self.multicast_result = {}
+        self.subscribe_result = {}
         self.online_search_result = {}
         self.channel_data = {}
         self.pbar = None
         self.total = 0
         self.start_time = None
-        self.sort_n = 0
 
     async def visit_page(self, channel_names=None):
         tasks_config = [
-            ("open_subscribe", get_channels_by_subscribe_urls, "subscribe_result"),
+            ("open_hotel_fofa", get_channels_by_fofa, "hotel_fofa_result"),
             ("open_multicast", get_channels_by_multicast, "multicast_result"),
             ("open_hotel_tonkiang", get_channels_by_hotel, "hotel_tonkiang_result"),
-            ("open_hotel_fofa", get_channels_by_fofa, "hotel_fofa_result"),
+            ("open_subscribe", get_channels_by_subscribe_urls, "subscribe_result"),
             (
                 "open_online_search",
                 get_channels_by_online_search,
@@ -93,106 +95,79 @@ class UpdateSource:
                 if setting == "open_subscribe":
                     subscribe_urls = config.get("Settings", "subscribe_urls").split(",")
                     task = asyncio.create_task(
-                        task_func(urls=subscribe_urls, callback=self.update_progress)
+                        task_func(subscribe_urls, callback=self.update_progress)
                     )
                 elif setting == "open_hotel_tonkiang" or setting == "open_hotel_fofa":
-                    task = asyncio.create_task(task_func(self.update_progress))
+                    task = asyncio.create_task(task_func(callback=self.update_progress))
                 else:
                     task = asyncio.create_task(
-                        task_func(channel_names, self.update_progress)
+                        task_func(channel_names, callback=self.update_progress)
                     )
                 self.tasks.append(task)
                 setattr(self, result_attr, await task)
 
-    def pbar_update(self, name="", n=0):
-        if not n:
+    def pbar_update(self, name=""):
+        if self.pbar.n < self.total:
             self.pbar.update()
-        self.update_progress(
-            f"正在进行{name}, 剩余{self.total - (n or self.pbar.n)}个频道, 预计剩余时间: {get_pbar_remaining(n=(n or self.pbar.n), total=self.total, start_time=self.start_time)}",
-            int(((n or self.pbar.n) / self.total) * 100),
-        )
+            self.update_progress(
+                f"正在进行{name}, 剩余{self.total - self.pbar.n}个接口, 预计剩余时间: {get_pbar_remaining(n=self.pbar.n, total=self.total, start_time=self.start_time)}",
+                int((self.pbar.n / self.total) * 100),
+            )
 
-    def sort_pbar_update(self):
-        self.sort_n += 1
-        self.pbar_update(name="测速", n=self.sort_n)
+    def get_urls_len(self, filter=False):
+        def process_cache_url(url):
+            if filter and "$cache:" in url:
+                cache_part = url.split("$cache:", 1)[1]
+                return cache_part.split("?")[0]
+            return url
+
+        processed_urls = set(
+            process_cache_url(url_info[0])
+            for channel_obj in self.channel_data.values()
+            for url_info_list in channel_obj.values()
+            for url_info in url_info_list
+        )
+        return len(processed_urls)
 
     async def main(self):
         try:
             self.channel_items = get_channel_items()
-            if self.run_ui:
-                copy_config()
             channel_names = [
                 name
                 for channel_obj in self.channel_items.values()
                 for name in channel_obj.keys()
             ]
-            self.total = len(channel_names)
             await self.visit_page(channel_names)
             self.tasks = []
             channel_items_obj_items = self.channel_items.items()
             self.channel_data = append_total_data(
                 channel_items_obj_items,
                 self.channel_data,
-                self.subscribe_result,
+                self.hotel_fofa_result,
                 self.multicast_result,
                 self.hotel_tonkiang_result,
-                self.hotel_fofa_result,
+                self.subscribe_result,
                 self.online_search_result,
             )
+            self.total = self.get_urls_len(filter=True)
+            sort_callback = lambda: self.pbar_update(name="测速")
             if config.getboolean("Settings", "open_sort"):
                 self.update_progress(
-                    f"正在测速排序, 共{self.total}个频道",
+                    f"正在测速排序, 共{self.total}个接口",
                     0,
                 )
                 self.start_time = time()
                 self.pbar = tqdm_asyncio(total=self.total, desc="Sorting")
-                self.sort_n = 0
                 self.channel_data = await process_sort_channel_list(
-                    data=self.channel_data, callback=self.sort_pbar_update
+                    self.channel_data,
+                    callback=sort_callback,
                 )
-            no_result_cate_names = [
-                (cate, name)
-                for cate, channel_obj in self.channel_data.items()
-                for name, info_list in channel_obj.items()
-                if not info_list
-            ]
-            no_result_names = [name for (_, name) in no_result_cate_names]
-            if no_result_names:
-                print(
-                    f"No result found for {', '.join(no_result_names)}, try a supplementary online search..."
-                )
-                sup_results = await get_channels_by_online_search(
-                    no_result_names, self.update_progress
-                )
-                sup_channel_items = defaultdict(lambda: defaultdict(list))
-                for cate, name in no_result_cate_names:
-                    data = sup_results.get(name)
-                    if data:
-                        sup_channel_items[cate][name] = data
-                self.total = len(
-                    [name for obj in sup_channel_items.values() for name in obj.keys()]
-                )
-                if self.total > 0 and config.getboolean("Settings", "open_sort"):
-                    self.update_progress(
-                        f"正在对补充频道测速排序, 共{self.total}个频道",
-                        0,
-                    )
-                    self.start_time = time()
-                    self.pbar = tqdm_asyncio(total=self.total, desc="Sorting")
-                    self.sort_n = 0
-                    sup_channel_items = await process_sort_channel_list(
-                        data=sup_channel_items,
-                        callback=self.sort_pbar_update,
-                    )
-                    self.channel_data = merge_objects(
-                        self.channel_data, sup_channel_items
-                    )
-            self.total = len(channel_names)
+            self.total = self.get_urls_len()
             self.pbar = tqdm(total=self.total, desc="Writing")
             self.start_time = time()
             write_channel_to_file(
-                items=channel_items_obj_items,
-                data=self.channel_data,
+                channel_items_obj_items,
+                self.channel_data,
                 callback=lambda: self.pbar_update(name="写入结果"),
             )
             self.pbar.close()
@@ -211,18 +186,26 @@ class UpdateSource:
                     if os.path.exists("config/user_config.ini")
                     else "result.log"
                 )
-                update_file(user_log_file, "output/result_new.log")
+                update_file(user_log_file, "output/result_new.log", copy=True)
             convert_to_m3u()
             print(f"Update completed! Please check the {user_final_file} file!")
             if self.run_ui:
+                tip = (
+                    "服务启动成功, 可访问以下链接:"
+                    if config.getboolean("Settings", "open_update") == False
+                    else f"更新完成, 请检查{user_final_file}文件, 可访问以下链接:"
+                )
                 self.update_progress(
-                    f"更新完成, 请检查{user_final_file}文件, 可访问以下链接:",
+                    tip,
                     100,
                     True,
                     url=f"{get_ip_address()}",
                 )
+                run_app()
         except asyncio.exceptions.CancelledError:
             print("Update cancelled!")
+        finally:
+            cleanup_logging()
 
     async def start(self, callback=None):
         def default_callback(self, *args, **kwargs):
@@ -231,15 +214,8 @@ class UpdateSource:
         self.update_progress = callback or default_callback
         self.run_ui = True if callback else False
         if config.getboolean("Settings", "open_update"):
+            setup_logging()
             await self.main()
-        if self.run_ui and config.getboolean("Settings", "open_update") == False:
-            self.update_progress(
-                f"服务启动成功, 可访问以下链接:",
-                100,
-                True,
-                url=f"{get_ip_address()}",
-            )
-            run_app()
 
     def stop(self):
         for task in self.tasks:
@@ -251,9 +227,9 @@ class UpdateSource:
 
 def scheduled_task():
     if config.getboolean("Settings", "open_update"):
-        update_source = UpdateSource()
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
+        update_source = UpdateSource()
         loop.run_until_complete(update_source.start())
 
 

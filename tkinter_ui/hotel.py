@@ -69,7 +69,7 @@ class HotelUI:
             frame_hotel_region_list, text="酒店地区:", width=9
         )
         self.region_list_label.pack(side=tk.LEFT, padx=4, pady=8)
-        regions = list(getattr(fofa_map, "region_url").keys())
+        regions = ["全部"] + list(getattr(fofa_map, "region_url").keys())
         region_selected_values = [
             value
             for value in config.get("Settings", "hotel_region_list").split(",")
@@ -80,11 +80,11 @@ class HotelUI:
             values=regions,
             selected_values=region_selected_values,
             height=10,
+            command=self.update_region_list,
         )
         self.region_list_combo.pack(
             side=tk.LEFT, padx=4, pady=8, expand=True, fill=tk.BOTH
         )
-        self.region_list_combo.bind("<KeyRelease>", self.update_region_list)
 
         frame_hotel_page_num = tk.Frame(root)
         frame_hotel_page_num.pack(fill=tk.X)
