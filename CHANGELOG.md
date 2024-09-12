@@ -1,5 +1,45 @@
 # 更新日志（Changelog）
 
+## 1.4.3
+
+### 2024/9/11
+
+- 修正 RTP 文件：贵州电信文件错误，第一财经、东方财经等频道命名，地址错误
+
+- Fixed RTP files: Corrected errors in Guizhou Telecom files, including naming and address errors for channels such as First Financial and Oriental Financial
+
+## v1.4.2
+
+### 2024/9/10
+
+- 新增内蒙古、甘肃、海南、云南地区
+- 更新 FOFA 酒店、组播缓存
+- 更新组播 RTP 文件
+- 优化测速过滤无效接口
+- 增加接口域名黑名单，避免频道花屏情况
+- 修复 FOFA requests 模式请求失败导致程序中止问题
+
+- Added Inner Mongolia, Gansu, Hainan, and Yunnan regions
+- Updated FOFA hotels and multicast cache
+- Updated multicast RTP files
+- Optimize speed test to filter out invalid interfaces
+- Add interface domain name blacklist to avoid channel screen distortion
+- Fix issue where FOFA requests mode failure leads to program termination
+
+## v1.4.1
+
+### 2024/9/9
+
+- 新增 FOFA 缓存，解决访问限制问题
+- 修复 CCTV-5+等频道 M3U 转换问题（#301）
+- 优化频道匹配问题
+- 优化地区选择空格情况
+
+- Added FOFA cache to address access restrictions
+- Fixed M3U conversion issues for channels like CCTV-5+ (#301)
+- Optimized channel matching issues
+- Improved handling of spaces in region selection
+
 ## v1.4.0
 
 ### 2024/9/5

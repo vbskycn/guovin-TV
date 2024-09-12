@@ -159,9 +159,10 @@ def check_by_domain_blacklist(url):
     Check by domain blacklist
     """
     domain_blacklist = [
-        urlparse(domain).netloc if urlparse(domain).scheme else domain
+        (parsed_domain.netloc if parsed_domain.scheme else stripped_domain)
         for domain in config.get("Settings", "domain_blacklist").split(",")
-        if domain.strip()
+        if (stripped_domain := domain.strip())
+        and (parsed_domain := urlparse(stripped_domain))
     ]
     return urlparse(url).netloc not in domain_blacklist
 
@@ -171,7 +172,7 @@ def check_by_url_keywords_blacklist(url):
     Check by URL blacklist keywords
     """
     url_keywords_blacklist = [
-        keyword
+        keyword.strip()
         for keyword in config.get("Settings", "url_keywords_blacklist").split(",")
         if keyword.strip()
     ]
@@ -212,9 +213,10 @@ def merge_objects(*objects):
                 elif isinstance(dict1[key], set):
                     dict1[key].update(value)
                 elif isinstance(dict1[key], list):
-                    dict1[key].extend(value)
-                    dict1[key] = list(set(dict1[key]))  # Remove duplicates
-                else:
+                    if value:
+                        dict1[key].extend(value)
+                        dict1[key] = list(set(dict1[key]))
+                elif value:
                     dict1[key] = {dict1[key], value}
             else:
                 dict1[key] = value
@@ -262,7 +264,10 @@ def convert_to_m3u():
                             str.strip, trimmed_line.split(",")
                         )
                         processed_channel_name = re.sub(
-                            r"(CCTV|CETV)-(\d+).*", r"\1\2", original_channel_name
+                            r"(CCTV|CETV)-(\d+)(\+.*)?",
+                            lambda m: f"{m.group(1)}{m.group(2)}"
+                            + ("+" if m.group(3) else ""),
+                            original_channel_name,
                         )
                         m3u_output += f'#EXTINF:-1 tvg-name="{processed_channel_name}" tvg-logo="https://live.fanmingming.com/tv/{processed_channel_name}.png"'
                         if current_group:
