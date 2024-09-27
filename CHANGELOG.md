@@ -1,6 +1,56 @@
 # 更新日志（Changelog）
 
-## 1.4.3
+## v1.4.7
+
+### 2024/09/26
+
+- 修复部分设备本地运行软件 driver 问题(#335)
+- 修复 driver 模式下新版谷歌浏览器白屏问题
+- 增加历史结果缓存(result_cache.pkl)，用于测速优化
+- 重构测速方法，提升测速效率
+- 优化测速进度条显示
+
+- Fix some issues with local software driver operation on certain devices (#335)
+- Fix the white screen issue with the new version of Google Chrome in driver mode
+- Add historical result cache (result_cache.pkl) for performance optimization
+- Refactor speed test methods to improve efficiency
+- Optimize speed test progress bar display
+
+## v1.4.6
+
+### 2024/9/20
+
+- 优化 IPv6 测试是否支持(#328)
+- 优化 404 类接口测速(#329)
+
+- Optimize IPv6 test support (#328)
+- Optimize 404 class interface speed test (#329)
+
+## v1.4.5
+
+### 2024/9/19
+
+- 修复 IPv6 接口测速(#325)
+
+- Fix IPv6 Interface Speed Test (#325)
+
+## v1.4.4
+
+### 2024/9/14
+
+- 修复组播接口测速可能出现结果频道分类空的问题
+- 修复使用历史更新结果时可能出现模板不存在的频道问题
+- 更新 FOFA 组播、酒店缓存
+- 更新默认模板(demo.txt)内容
+- 更新使用教程
+
+- Fix the issue where multicast interface speed test may result in an empty channel category
+- Fix the issue where channels may appear missing when updating results with history
+- Update FOFA multicast and hotel cache
+- Update default template (demo.txt) content
+- Update user guide
+
+## v1.4.3
 
 ### 2024/9/11
 

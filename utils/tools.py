@@ -10,6 +10,7 @@ import re
 from bs4 import BeautifulSoup
 from flask import render_template_string, send_file
 import shutil
+import requests
 
 
 def format_interval(t):
@@ -139,6 +140,23 @@ def is_ipv6(url):
         return True
     except ValueError:
         return False
+
+
+def check_ipv6_support():
+    """
+    Check if the system network supports ipv6
+    """
+    url = "https://ipv6.tokyo.test-ipv6.com/ip/?callback=?&testdomain=test-ipv6.com&testname=test_aaaa"
+    try:
+        print("Checking if your network supports IPv6...")
+        response = requests.get(url, timeout=15)
+        if response.status_code == 200:
+            print("Your network supports IPv6")
+            return True
+    except Exception:
+        pass
+    print("Your network does not support IPv6, using proxy instead")
+    return False
 
 
 def check_url_ipv_type(url):
@@ -294,3 +312,27 @@ def get_result_file_content(show_result=False):
         "<head><link rel='icon' href='{{ url_for('static', filename='images/favicon.ico') }}' type='image/x-icon'></head><pre>{{ content }}</pre>",
         content=content,
     )
+
+
+def remove_duplicates_from_tuple_list(tuple_list, seen, flag=None):
+    """
+    Remove duplicates from tuple list
+    """
+    unique_list = []
+    for item in tuple_list:
+        part = item[0] if flag is None else item[0].rsplit(flag, 1)[-1]
+        if part not in seen:
+            seen.add(part)
+            unique_list.append(item)
+    return unique_list
+
+
+def process_nested_dict(data, seen, flag=None):
+    """
+    Process nested dict
+    """
+    for key, value in data.items():
+        if isinstance(value, dict):
+            process_nested_dict(value, seen, flag)
+        elif isinstance(value, list):
+            data[key] = remove_duplicates_from_tuple_list(value, seen, flag)

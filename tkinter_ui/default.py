@@ -4,7 +4,6 @@ from tkinter import ttk
 from tkinter import scrolledtext
 from tkinter import filedialog
 import os
-from utils.channel import get_channel_items
 
 
 class DefaultUI:
@@ -161,8 +160,14 @@ class DefaultUI:
         self.ipv_type_label.pack(side=tk.LEFT, padx=4, pady=8)
         self.ipv_type_combo = ttk.Combobox(frame_default_channel_column2)
         self.ipv_type_combo.pack(side=tk.LEFT, padx=4, pady=8)
-        self.ipv_type_combo["values"] = ("ipv4", "ipv6", "all")
-        self.ipv_type_combo.current(0)
+        self.ipv_type_combo["values"] = ("ipv4", "ipv6", "全部")
+        ipv_type = config.get("Settings", "ipv_type")
+        if ipv_type == "ipv4":
+            self.ipv_type_combo.current(0)
+        elif ipv_type == "ipv6":
+            self.ipv_type_combo.current(1)
+        else:
+            self.ipv_type_combo.current(2)
         self.ipv_type_combo.bind("<<ComboboxSelected>>", self.update_ipv_type)
 
         frame_default_sort = tk.Frame(root)
