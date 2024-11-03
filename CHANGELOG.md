@@ -1,5 +1,67 @@
 # 更新日志（Changelog）
 
+## v1.5.0
+
+### 2024/10/25
+
+- ✨🛠 新增结果偏好设置：
+
+  1. 接口来源优先级（origin_type_prefer）与数量设置（hotel_num, multicast_num, subscribe_num, online_search_num）
+  2. IPv 类型优先级（ipv_type_prefer）与数量设置（ipv4_num, ipv6_num）
+
+- ✨🛠 新增控制接口测速超时时间（sort_timeout）（#388）
+- ✨🛠 新增控制是否开启页面服务（open_service）（青龙等平台可使用该配置实现任务执行完成后停止运行）
+- ✨🛠 新增控制是否显示接口相关信息（open_url_info）（#431）
+- ✨ 新增支持 m3u 地址订阅源（#389）
+- ✨ 新增 🏛 经典剧场
+- 🪄 优化 Docker ARM64 FFmpeg 支持（部分 ARM 设备无法运行 driver 镜像建议使用 requests 镜像）
+- 🪄 优化组播获取非数值域名 ip 地址（#410）
+- 🪄 优化使用旧配置文件时可能出现的新参数不存在报错问题，使用默认值
+- 🐛 修复对于非规范 txt 文本转换 m3u 报错问题（#422）
+- 🐛 修复 IPv6 接口获取失败问题（#452）
+
+<details>
+  <summary>English</summary>
+
+- ✨🛠 Added result preference settings:
+  1. Source priority (origin_type_prefer) and quantity settings (hotel_num, multicast_num, subscribe_num, online_search_num)
+  2. IPv type priority (ipv_type_prefer) and quantity settings (ipv4_num, ipv6_num)
+- ✨🛠 Added control for API speed test timeout (sort_timeout) (#388)
+- ✨🛠 Added control to enable or disable page service (open_service) (this configuration can be used on platforms like QingLong to stop running after task completion)
+- ✨🛠 Added control to show or hide API related information (open_url_info) (#431)
+- ✨ Added support for m3u address subscription sources (#389)
+- ✨ Added 🏛 Classic Theater
+- 🪄 Optimized Docker ARM64 FFmpeg support (it is recommended to use the requests image for some ARM devices that cannot run the driver image)
+- 🪄 Optimized obtaining non-numeric domain IP addresses for multicast (#410)
+- 🪄 Optimize the issue of non-existent new parameters when using old configuration files, use default values
+- 🐛 Fixed issues with converting non-standard txt files to m3u format (#422)
+- 🐛 Fixed issues with failing to obtain IPv6 interface information (#452)
+</details>
+
+## v1.4.9
+
+### 2024/10/11
+
+- 注意：本次更新涉及配置变更，请以最新 config/config.ini 为准，工作流使用 user_config.ini 或 docker 挂载的用户请及时更新配置文件
+- 新增支持 docker arm64 镜像（#369）
+- 新增分辨率过滤功能（相关配置：open_filter_resolution，min_resolution）
+- 新增显示更新时间（相关配置：open_update_time）
+- 优化测速效率（#359）
+- 优化权重值选择交互
+- 调整默认模板，增加默认订阅源
+- 移除央视台球部分错误组播地址
+- 更新使用教程
+
+- Warning: This update involves configuration changes. Please refer to the latest config.ini. Users of workflow using user_config.ini or Docker mounted configurations should update their configuration files promptly
+- Add support for Docker ARM64 images (#369)
+- Add resolution filtering feature (related configurations: open_filter_resolution, min_resolution)
+- Add display of update time (related configuration: open_update_time)
+- Optimize speed testing efficiency (#359)
+- Optimize weight value selection interaction
+- Adjust the default template and add default subscription sources
+- Remove the incorrect multicast addresses for the CCTV Snooker section
+- Update usage guide
+
 ## v1.4.8
 
 ### 2024/09/27

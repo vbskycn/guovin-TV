@@ -5,8 +5,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 
 from updates.subscribe import get_channels_by_subscribe_urls
 from driver.utils import get_soup_driver
-from utils.config import resource_path, config
-from utils.channel import format_channel_name
+from utils.config import resource_path
+import utils.constants as constants
+from utils.channel import format_channel_name, get_name_url
 from utils.tools import get_pbar_remaining
 import json
 
@@ -103,18 +104,14 @@ def get_multicast_region_result_by_rtp_txt(callback=None):
     Get multicast region result by rtp txt
     """
     rtp_path = resource_path("config/rtp")
-    config_region_list = set(
-        region.strip()
-        for region in config.get("Settings", "multicast_region_list").split(",")
-        if region.strip()
-    )
+    config_region_list = set(constants.multicast_region_list)
     rtp_file_list = [
         filename.rsplit(".", 1)[0]
         for filename in os.listdir(rtp_path)
         if filename.endswith(".txt")
         and "_" in filename
         and (
-            filename.rsplit(".", 1)[0].split("_", 1)[0] in config_region_list
+            filename.rsplit(".", 1)[0].partition("_")[0] in config_region_list
             or config_region_list & {"all", "ALL", "全部"}
         )
     ]
@@ -125,19 +122,18 @@ def get_multicast_region_result_by_rtp_txt(callback=None):
 
     pbar = tqdm(total=total_files, desc="Loading local multicast rtp files")
     multicast_result = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
-    pattern = re.compile(r"^(.*?),(?!#genre#)(.*?)$")
     start_time = time()
 
     for filename in rtp_file_list:
-        region, type = filename.split("_", 1)
+        region, _, type = filename.partition("_")
         with open(
             os.path.join(rtp_path, f"{filename}.txt"), "r", encoding="utf-8"
         ) as f:
             for line in f:
-                matcher = pattern.match(line)
-                if matcher:
-                    channel_name = format_channel_name(matcher.group(1).strip())
-                    url = matcher.group(2).strip()
+                name_url = get_name_url(line, pattern=constants.rtp_pattern)
+                if name_url and name_url[0]:
+                    channel_name = format_channel_name(name_url[0]["name"])
+                    url = name_url[0]["url"]
                     if url not in multicast_result[channel_name][region][type]:
                         multicast_result[channel_name][region][type].append(url)
         pbar.update()

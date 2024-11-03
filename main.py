@@ -8,6 +8,7 @@ from utils.channel import (
     setup_logging,
     cleanup_logging,
     get_channel_data_cache_with_compare,
+    format_channel_url_info,
 )
 from utils.tools import (
     update_file,
@@ -16,6 +17,8 @@ from utils.tools import (
     convert_to_m3u,
     get_result_file_content,
     process_nested_dict,
+    format_interval,
+    check_ipv6_support,
 )
 from updates.subscribe import get_channels_by_subscribe_urls
 from updates.multicast import get_channels_by_multicast
@@ -93,13 +96,15 @@ class UpdateSource:
         for setting, task_func, result_attr in tasks_config:
             if (
                 setting == "open_hotel_tonkiang" or setting == "open_hotel_fofa"
-            ) and config.getboolean("Settings", "open_hotel") == False:
+            ) and config.getboolean("Settings", "open_hotel", fallback=True) == False:
                 continue
-            if config.getboolean("Settings", setting):
+            if config.getboolean("Settings", setting, fallback=True):
                 if setting == "open_subscribe":
                     subscribe_urls = [
                         url.strip()
-                        for url in config.get("Settings", "subscribe_urls").split(",")
+                        for url in config.get(
+                            "Settings", "subscribe_urls", fallback=""
+                        ).split(",")
                         if url.strip()
                     ]
                     task = asyncio.create_task(
@@ -125,7 +130,7 @@ class UpdateSource:
     def get_urls_len(self, filter=False):
         data = copy.deepcopy(self.channel_data)
         if filter:
-            process_nested_dict(data, seen=set(), flag="$cache:")
+            process_nested_dict(data, seen=set(), flag=r"cache:(.*)", force_str="!")
         processed_urls = set(
             url_info[0]
             for channel_obj in data.values()
@@ -136,6 +141,7 @@ class UpdateSource:
 
     async def main(self):
         try:
+            main_start_time = time()
             self.channel_items = get_channel_items()
             channel_names = [
                 name
@@ -144,9 +150,9 @@ class UpdateSource:
             ]
             await self.visit_page(channel_names)
             self.tasks = []
-            channel_items_obj_items = self.channel_items.items()
             append_total_data(
-                channel_items_obj_items,
+                self.channel_items.items(),
+                channel_names,
                 self.channel_data,
                 self.hotel_fofa_result,
                 self.multicast_result,
@@ -154,31 +160,39 @@ class UpdateSource:
                 self.subscribe_result,
                 self.online_search_result,
             )
+            urls_total = self.get_urls_len()
             channel_data_cache = copy.deepcopy(self.channel_data)
-            self.total = self.get_urls_len(filter=True)
-            sort_callback = lambda: self.pbar_update(name="测速")
-            open_sort = config.getboolean("Settings", "open_sort")
+            ipv6_support = check_ipv6_support()
+            open_sort = config.getboolean("Settings", "open_sort", fallback=True)
             if open_sort:
+                self.total = self.get_urls_len(filter=True)
+                print(f"Total urls: {urls_total}, need to sort: {self.total}")
+                sort_callback = lambda: self.pbar_update(name="测速")
                 self.update_progress(
-                    f"正在测速排序, 共{self.total}个接口",
+                    f"正在测速排序, 共{urls_total}个接口, {self.total}个接口需要进行测速",
                     0,
                 )
                 self.start_time = time()
                 self.pbar = tqdm_asyncio(total=self.total, desc="Sorting")
                 self.channel_data = await process_sort_channel_list(
                     self.channel_data,
+                    ipv6=ipv6_support,
                     callback=sort_callback,
                 )
+            else:
+                format_channel_url_info(self.channel_data)
             self.total = self.get_urls_len()
             self.pbar = tqdm(total=self.total, desc="Writing")
             self.start_time = time()
             write_channel_to_file(
-                channel_items_obj_items,
                 self.channel_data,
+                ipv6=ipv6_support,
                 callback=lambda: self.pbar_update(name="写入结果"),
             )
             self.pbar.close()
-            user_final_file = config.get("Settings", "final_file")
+            user_final_file = config.get(
+                "Settings", "final_file", fallback="output/result.txt"
+            )
             update_file(user_final_file, "output/result_new.txt")
             if os.path.exists(user_final_file):
                 result_file = (
@@ -187,7 +201,7 @@ class UpdateSource:
                     else "result.txt"
                 )
                 shutil.copy(user_final_file, result_file)
-            if config.getboolean("Settings", "open_use_old_result"):
+            if config.getboolean("Settings", "open_use_old_result", fallback=True):
                 if open_sort:
                     get_channel_data_cache_with_compare(
                         channel_data_cache, self.channel_data
@@ -204,20 +218,30 @@ class UpdateSource:
                 )
                 update_file(user_log_file, "output/result_new.log", copy=True)
             convert_to_m3u()
-            print(f"Update completed! Please check the {user_final_file} file!")
+            total_time = format_interval(time() - main_start_time)
+            print(
+                f"Update completed! Total time spent: {total_time}. Please check the {user_final_file} file!"
+            )
             if self.run_ui:
+                open_service = config.getboolean(
+                    "Settings", "open_service", fallback=True
+                )
+                service_tip = ", 可使用以下链接观看直播:" if open_service else ""
                 tip = (
-                    "服务启动成功, 可访问以下链接:"
-                    if config.getboolean("Settings", "open_update") == False
-                    else f"更新完成, 请检查{user_final_file}文件, 可访问以下链接:"
+                    f"服务启动成功{service_tip}"
+                    if open_service
+                    and config.getboolean("Settings", "open_update", fallback=True)
+                    == False
+                    else f"更新完成, 耗时: {total_time}, 请检查{user_final_file}文件{service_tip}"
                 )
                 self.update_progress(
                     tip,
                     100,
                     True,
-                    url=f"{get_ip_address()}",
+                    url=f"{get_ip_address()}" if open_service else None,
                 )
-                run_app()
+                if open_service:
+                    run_service()
         except asyncio.exceptions.CancelledError:
             print("Update cancelled!")
         finally:
@@ -229,7 +253,7 @@ class UpdateSource:
 
         self.update_progress = callback or default_callback
         self.run_ui = True if callback else False
-        if config.getboolean("Settings", "open_update"):
+        if config.getboolean("Settings", "open_update", fallback=True):
             setup_logging()
             await self.main()
 
@@ -242,20 +266,24 @@ class UpdateSource:
 
 
 def scheduled_task():
-    if config.getboolean("Settings", "open_update"):
+    if config.getboolean("Settings", "open_update", fallback=True):
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         update_source = UpdateSource()
         loop.run_until_complete(update_source.start())
 
 
-def run_app():
+def run_service():
     if not os.environ.get("GITHUB_ACTIONS"):
-        print(f"You can access the result at {get_ip_address()}")
+        ip_address = get_ip_address()
+        print(f"You can use this url to watch the live stream: {ip_address}")
+        print(f"Result detail: {ip_address}/result")
+        print(f"Log detail: {ip_address}/log")
         app.run(host="0.0.0.0", port=8000)
 
 
 if __name__ == "__main__":
     if len(sys.argv) == 1 or (len(sys.argv) > 1 and sys.argv[1] == "scheduled_task"):
         scheduled_task()
-    run_app()
+    if config.getboolean("Settings", "open_service", fallback=True):
+        run_service()

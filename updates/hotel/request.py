@@ -1,11 +1,9 @@
-from asyncio import create_task, gather
-from utils.speed import get_speed
 from utils.channel import (
     get_results_from_multicast_soup,
     get_results_from_multicast_soup_requests,
 )
 from utils.tools import get_pbar_remaining, get_soup
-from utils.config import config
+import utils.constants as constants
 from updates.proxy import get_proxy, get_proxy_next
 from time import time
 from driver.setup import setup_driver
@@ -32,17 +30,12 @@ async def get_channels_by_hotel(callback=None):
     channels = {}
     pageUrl = "http://tonkiang.us/hoteliptv.php"
     proxy = None
-    open_proxy = config.getboolean("Settings", "open_proxy")
-    open_driver = config.getboolean("Settings", "open_driver")
-    page_num = config.getint("Settings", "hotel_page_num")
-    region_list = [
-        region.strip()
-        for region in config.get("Settings", "hotel_region_list").split(",")
-        if region.strip()
-    ]
+    open_proxy = constants.open_proxy
+    open_driver = constants.open_driver
+    page_num = constants.hotel_page_num
+    region_list = constants.hotel_region_list
     if "all" in region_list or "ALL" in region_list or "全部" in region_list:
-        fofa_region_name_list = list(getattr(fofa_map, "region_url").keys())
-        region_list = fofa_region_name_list
+        region_list = list(getattr(fofa_map, "region_url").keys())
     if open_proxy:
         proxy = await get_proxy(pageUrl, best=True, with_test=True)
     start_time = time()
@@ -83,7 +76,7 @@ async def get_channels_by_hotel(callback=None):
                     page_soup = get_soup_requests(pageUrl, data=post_form, proxy=proxy)
                 if not page_soup:
                     print(f"{name}:Request fail.")
-                    return {"region": region, "type": type, "data": info_list}
+                    return info_list
                 else:
                     a_tags = page_soup.find_all("a", href=True)
                     for a_tag in a_tags:
@@ -113,7 +106,7 @@ async def get_channels_by_hotel(callback=None):
                             driver.execute_script("arguments[0].click();", page_link)
                         else:
                             request_url = (
-                                f"{pageUrl}?net={name}&page={page}&code={code}"
+                                f"{pageUrl}?isp={name}&page={page}&code={code}"
                             )
                             page_soup = retry_func(
                                 lambda: get_soup_requests(request_url, proxy=proxy),
@@ -154,7 +147,7 @@ async def get_channels_by_hotel(callback=None):
                     f"正在获取Tonkiang酒店源, 剩余{region_list_len - pbar.n}个地区待查询, 预计剩余时间: {get_pbar_remaining(n=pbar.n, total=pbar.total, start_time=start_time)}",
                     int((pbar.n / region_list_len) * 100),
                 )
-            return {"region": region, "type": type, "data": info_list}
+            return info_list
 
     region_list_len = len(region_list)
     pbar = tqdm_asyncio(total=region_list_len, desc="Tonkiang hotel search")
@@ -170,22 +163,20 @@ async def get_channels_by_hotel(callback=None):
         for future in as_completed(futures):
             region = futures[future]
             result = future.result()
-            data = result.get("data")
 
-            if data:
-                for item in data:
+            if result:
+                for item in result:
                     url = item.get("url")
                     date = item.get("date")
                     if url:
                         search_region_result[region].append((url, date, None))
     urls = [
-        f"http://{url}/ZHGXTV/Public/json/live_interface.txt"
-        for result in search_region_result.values()
+        {region: region, url: f"http://{url}/ZHGXTV/Public/json/live_interface.txt"}
+        for region, result in search_region_result.items()
         for url, _, _ in result
     ]
-    open_sort = config.getboolean("Settings", "open_sort")
     channels = await get_channels_by_subscribe_urls(
-        urls, hotel=True, retry=False, error_print=False, with_cache=open_sort
+        urls, hotel=True, retry=False, error_print=False
     )
     if not open_driver:
         close_session()

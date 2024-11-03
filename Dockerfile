@@ -8,9 +8,8 @@ COPY . $APP_WORKDIR
 
 WORKDIR $APP_WORKDIR
 
-RUN pip install -i https://mirrors.aliyun.com/pypi/simple pipenv
-
-RUN pipenv install
+RUN pip install -i https://mirrors.aliyun.com/pypi/simple pipenv \
+  && pipenv install
 
 RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware\n \
   deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware\n \
@@ -25,14 +24,7 @@ RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   cron \
-  xz-utils
-
-COPY tmp/ffmpeg-release-i686-static.tar.xz /tmp/
-
-RUN tar -xf /tmp/ffmpeg-release-i686-static.tar.xz -C /tmp/ \
-  && cp /tmp/ffmpeg-*/ffmpeg /usr/local/bin/ \
-  && cp /tmp/ffmpeg-*/ffprobe /usr/local/bin/ \
-  && rm -rf /tmp/ffmpeg-*
+  ffmpeg
 
 ARG INSTALL_CHROMIUM=false
 

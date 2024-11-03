@@ -1,4 +1,4 @@
-name: 'update schedule'
+name: 'Update schedule'
 
 on:
   schedule:
@@ -36,7 +36,7 @@ jobs:
           echo "OPEN_DRIVER=$(python -c '
           try:
             from utils.config import config
-            open_driver = config.getboolean("Settings", "open_driver")
+            open_driver = config.getboolean("Settings", "open_driver", fallback=True)
           except:
             open_driver = False
           print(open_driver)')" >> $GITHUB_ENV
@@ -46,14 +46,10 @@ jobs:
           echo "OPEN_FFMPEG=$(python -c '
           try:
             from utils.config import config
-            open_ffmpeg = config.getboolean("Settings", "open_ffmpeg")
+            open_ffmpeg = config.getboolean("Settings", "open_ffmpeg", fallback=True)
           except:
             open_ffmpeg = False
           print(open_ffmpeg)')" >> $GITHUB_ENV
-      - name: Install Selenium
-        if: env.OPEN_DRIVER == 'True' || env.OPEN_DRIVER == 'true'
-        run: |
-          sudo pip3 install selenium
       - name: Set up Chrome
         if: env.OPEN_DRIVER == 'True' || env.OPEN_DRIVER == 'true'
         uses: browser-actions/setup-chrome@latest
@@ -62,12 +58,6 @@ jobs:
       - name: Download chrome driver
         if: env.OPEN_DRIVER == 'True' || env.OPEN_DRIVER == 'true'
         uses: nanasess/setup-chromedriver@master
-      - name: Launch chrome driver
-        if: env.OPEN_DRIVER == 'True' || env.OPEN_DRIVER == 'true'
-        run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: Install FFmpeg
         if: env.OPEN_FFMPEG == 'True' || env.OPEN_FFMPEG == 'true'
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
@@ -85,7 +75,7 @@ jobs:
           final_file=$(python -c '
           try: 
             from utils.config import config
-            final_file = config.get("Settings", "final_file")
+            final_file = config.get("Settings", "final_file", fallback="output/result.txt")
           except: 
             final_file = "output/result.txt"
           print(final_file)')
@@ -93,7 +83,7 @@ jobs:
           try: 
             from utils.config import config
             import os
-            final_file = config.get("Settings", "final_file")
+            final_file = config.get("Settings", "final_file", fallback="output/result.txt")
             final_m3u_file = os.path.splitext(final_file)[0] + ".m3u"
           except: 
             final_m3u_file = "output/result.m3u"
