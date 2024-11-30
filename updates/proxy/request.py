@@ -1,9 +1,9 @@
 from asyncio import Semaphore
 from tqdm import tqdm
 from tqdm.asyncio import tqdm_asyncio
-from utils.speed import get_speed
+from utils.config import config
+from utils.speed import get_speed_requests
 from concurrent.futures import ThreadPoolExecutor
-import utils.constants as constants
 from driver.utils import get_soup_driver
 from requests_custom.utils import get_soup_requests, close_session
 from utils.retry import retry_func
@@ -20,7 +20,7 @@ def get_proxy_list(page_count=1):
     ]
     proxy_list = []
     urls = []
-    open_driver = constants.open_driver
+    open_driver = config.open_driver
     for page_index in range(1, page_count + 1):
         for pattern in url_pattern:
             url = pattern.format(page_index)
@@ -28,7 +28,6 @@ def get_proxy_list(page_count=1):
     pbar = tqdm(total=len(urls), desc="Getting proxy list")
 
     def get_proxy(url):
-        nonlocal open_driver
         proxys = []
         try:
             if open_driver:
@@ -72,7 +71,7 @@ async def get_proxy_list_with_test(base_url, proxy_list):
 
     async def get_speed_task(url, timeout, proxy):
         async with semaphore:
-            return await get_speed(url, timeout=timeout, proxy=proxy)
+            return await get_speed_requests(url, timeout=timeout, proxy=proxy)
 
     response_times = await tqdm_asyncio.gather(
         *(get_speed_task(base_url, timeout=30, proxy=url) for url in proxy_list),

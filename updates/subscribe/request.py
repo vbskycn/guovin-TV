@@ -2,6 +2,8 @@ import utils.constants as constants
 from tqdm.asyncio import tqdm_asyncio
 from time import time
 from requests import Session, exceptions
+from utils.config import config
+import utils.constants as constants
 from utils.retry import retry_func
 from utils.channel import get_name_url, format_channel_name
 from utils.tools import (
@@ -26,7 +28,7 @@ async def get_channels_by_subscribe_urls(
     Get the channels by subscribe urls
     """
     subscribe_results = {}
-    subscribe_urls_len = len(urls if urls else constants.subscribe_urls)
+    subscribe_urls_len = len(urls if urls else config.subscribe_urls)
     pbar = tqdm_asyncio(
         total=subscribe_urls_len,
         desc=f"Processing subscribe {'for multicast' if multicast else ''}",
@@ -39,6 +41,9 @@ async def get_channels_by_subscribe_urls(
             0,
         )
     session = Session()
+    hotel_name = constants.origin_map["hotel"]
+    multicast_name = constants.origin_map["multicast"]
+    subscribe_name = constants.origin_map["subscribe"]
 
     def process_subscribe_channels(subscribe_info):
         if (multicast or hotel) and isinstance(subscribe_info, dict):
@@ -54,12 +59,12 @@ async def get_channels_by_subscribe_urls(
                 response = (
                     retry_func(
                         lambda: session.get(
-                            subscribe_url, timeout=constants.request_timeout
+                            subscribe_url, timeout=config.request_timeout
                         ),
                         name=subscribe_url,
                     )
                     if retry
-                    else session.get(subscribe_url, timeout=constants.request_timeout)
+                    else session.get(subscribe_url, timeout=config.request_timeout)
                 )
             except exceptions.Timeout:
                 print(f"Timeout on subscribe: {subscribe_url}")
@@ -82,9 +87,13 @@ async def get_channels_by_subscribe_urls(
                         url = url.partition("$")[0]
                         if not multicast:
                             info = (
-                                f"{region}酒店源"
+                                f"{region}{hotel_name}"
                                 if hotel
-                                else "组播源" if "/rtp/" in url else "订阅源"
+                                else (
+                                    f"{multicast_name}"
+                                    if "/rtp/" in url
+                                    else f"{subscribe_name}"
+                                )
                             )
                             url = add_url_info(url, info)
                         url = format_url_with_cache(
@@ -119,7 +128,7 @@ async def get_channels_by_subscribe_urls(
     with ThreadPoolExecutor(max_workers=100) as executor:
         futures = [
             executor.submit(process_subscribe_channels, subscribe_url)
-            for subscribe_url in (urls if urls else constants.subscribe_urls)
+            for subscribe_url in (urls if urls else config.subscribe_urls)
         ]
         for future in futures:
             subscribe_results = merge_objects(subscribe_results, future.result())

@@ -1,9 +1,10 @@
+from utils.config import config
+import utils.constants as constants
 from utils.channel import (
     get_results_from_multicast_soup,
     get_results_from_multicast_soup_requests,
 )
 from utils.tools import get_pbar_remaining, get_soup
-import utils.constants as constants
 from updates.proxy import get_proxy, get_proxy_next
 from time import time
 from driver.setup import setup_driver
@@ -12,7 +13,6 @@ from utils.retry import (
     retry_func,
     find_clickable_element_with_retry,
 )
-from selenium.webdriver.common.by import By
 from tqdm.asyncio import tqdm_asyncio
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from requests_custom.utils import get_soup_requests, close_session
@@ -22,18 +22,24 @@ from updates.subscribe import get_channels_by_subscribe_urls
 from collections import defaultdict
 import updates.fofa.fofa_map as fofa_map
 
+if config.open_driver:
+    try:
+        from selenium.webdriver.common.by import By
+    except:
+        pass
+
 
 async def get_channels_by_hotel(callback=None):
     """
     Get the channels by multicase
     """
     channels = {}
-    pageUrl = "http://tonkiang.us/hoteliptv.php"
+    pageUrl = constants.foodie_hotel_url
     proxy = None
-    open_proxy = constants.open_proxy
-    open_driver = constants.open_driver
-    page_num = constants.hotel_page_num
-    region_list = constants.hotel_region_list
+    open_proxy = config.open_proxy
+    open_driver = config.open_driver
+    page_num = config.hotel_page_num
+    region_list = config.hotel_region_list
     if "all" in region_list or "ALL" in region_list or "全部" in region_list:
         region_list = list(getattr(fofa_map, "region_url").keys())
     if open_proxy:
@@ -41,7 +47,7 @@ async def get_channels_by_hotel(callback=None):
     start_time = time()
 
     def process_region_by_hotel(region):
-        nonlocal proxy, open_driver, page_num
+        nonlocal proxy
         name = f"{region}"
         info_list = []
         driver = None
@@ -51,7 +57,7 @@ async def get_channels_by_hotel(callback=None):
                 try:
                     retry_func(
                         lambda: driver.get(pageUrl),
-                        name=f"Tonkiang hotel search:{name}",
+                        name=f"Foodie hotel search:{name}",
                     )
                 except Exception as e:
                     if open_proxy:
@@ -68,7 +74,7 @@ async def get_channels_by_hotel(callback=None):
                 try:
                     page_soup = retry_func(
                         lambda: get_soup_requests(pageUrl, data=post_form, proxy=proxy),
-                        name=f"Tonkiang hotel search:{name}",
+                        name=f"Foodie hotel search:{name}",
                     )
                 except Exception as e:
                     if open_proxy:
@@ -106,7 +112,7 @@ async def get_channels_by_hotel(callback=None):
                             driver.execute_script("arguments[0].click();", page_link)
                         else:
                             request_url = (
-                                f"{pageUrl}?isp={name}&page={page}&code={code}"
+                                f"{pageUrl}?net={name}&page={page}&code={code}"
                             )
                             page_soup = retry_func(
                                 lambda: get_soup_requests(request_url, proxy=proxy),
@@ -144,15 +150,15 @@ async def get_channels_by_hotel(callback=None):
             pbar.update()
             if callback:
                 callback(
-                    f"正在获取Tonkiang酒店源, 剩余{region_list_len - pbar.n}个地区待查询, 预计剩余时间: {get_pbar_remaining(n=pbar.n, total=pbar.total, start_time=start_time)}",
+                    f"正在获取Foodie酒店源, 剩余{region_list_len - pbar.n}个地区待查询, 预计剩余时间: {get_pbar_remaining(n=pbar.n, total=pbar.total, start_time=start_time)}",
                     int((pbar.n / region_list_len) * 100),
                 )
             return info_list
 
     region_list_len = len(region_list)
-    pbar = tqdm_asyncio(total=region_list_len, desc="Tonkiang hotel search")
+    pbar = tqdm_asyncio(total=region_list_len, desc="Foodie hotel search")
     if callback:
-        callback(f"正在获取Tonkiang酒店源, 共{region_list_len}个地区", 0)
+        callback(f"正在获取Foodie酒店源, 共{region_list_len}个地区", 0)
     search_region_result = defaultdict(list)
     with ThreadPoolExecutor(max_workers=3) as executor:
         futures = {

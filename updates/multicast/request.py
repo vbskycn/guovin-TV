@@ -1,3 +1,5 @@
+from utils.config import config
+import utils.constants as constants
 from utils.channel import (
     get_results_from_multicast_soup,
     get_results_from_multicast_soup_requests,
@@ -7,7 +9,6 @@ from utils.channel import (
     get_multicast_fofa_search_urls,
 )
 from utils.tools import get_pbar_remaining, get_soup, merge_objects
-import utils.constants as constants
 from updates.proxy import get_proxy, get_proxy_next
 from updates.fofa import get_channels_by_fofa
 from time import time
@@ -17,7 +18,6 @@ from utils.retry import (
     retry_func,
     find_clickable_element_with_retry,
 )
-from selenium.webdriver.common.by import By
 from tqdm.asyncio import tqdm_asyncio
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from requests_custom.utils import get_soup_requests, close_session
@@ -26,17 +26,23 @@ from urllib.parse import parse_qs
 from collections import defaultdict
 from .update_tmp import get_multicast_region_result_by_rtp_txt
 
+if config.open_driver:
+    try:
+        from selenium.webdriver.common.by import By
+    except:
+        pass
+
 
 async def get_channels_by_multicast(names, callback=None):
     """
     Get the channels by multicase
     """
     channels = {}
-    pageUrl = "http://tonkiang.us/hoteliptv.php"
+    pageUrl = constants.foodie_hotel_url
     proxy = None
-    open_proxy = constants.open_proxy
-    open_driver = constants.open_driver
-    page_num = constants.multicast_page_num
+    open_proxy = config.open_proxy
+    open_driver = config.open_driver
+    page_num = config.multicast_page_num
     if open_proxy:
         proxy = await get_proxy(pageUrl, best=True, with_test=True)
     multicast_region_result = get_multicast_region_result_by_rtp_txt(callback=callback)
@@ -45,7 +51,7 @@ async def get_channels_by_multicast(names, callback=None):
     )
     region_type_list = get_channel_multicast_region_type_list(name_region_type_result)
     search_region_type_result = defaultdict(lambda: defaultdict(list))
-    if constants.open_multicast_fofa:
+    if config.open_multicast_fofa:
         fofa_search_urls = get_multicast_fofa_search_urls()
         fofa_result = await get_channels_by_fofa(
             fofa_search_urls, multicast=True, callback=callback
@@ -53,7 +59,7 @@ async def get_channels_by_multicast(names, callback=None):
         merge_objects(search_region_type_result, fofa_result)
 
     def process_channel_by_multicast(region, type):
-        nonlocal proxy, open_driver, page_num, start_time
+        nonlocal proxy
         name = f"{region}{type}"
         info_list = []
         driver = None
@@ -112,7 +118,7 @@ async def get_channels_by_multicast(names, callback=None):
                             driver.execute_script("arguments[0].click();", page_link)
                         else:
                             request_url = (
-                                f"{pageUrl}?isp={name}&page={page}&code={code}"
+                                f"{pageUrl}?net={name}&page={page}&code={code}"
                             )
                             page_soup = retry_func(
                                 lambda: get_soup_requests(request_url, proxy=proxy),
@@ -148,17 +154,17 @@ async def get_channels_by_multicast(names, callback=None):
             pbar.update()
             if callback:
                 callback(
-                    f"正在进行Tonkiang组播更新, 剩余{region_type_list_len - pbar.n}个地区待查询, 预计剩余时间: {get_pbar_remaining(n=pbar.n, total=pbar.total, start_time=start_time)}",
+                    f"正在进行Foodie组播更新, 剩余{region_type_list_len - pbar.n}个地区待查询, 预计剩余时间: {get_pbar_remaining(n=pbar.n, total=pbar.total, start_time=start_time)}",
                     int((pbar.n / region_type_list_len) * 100),
                 )
             return {"region": region, "type": type, "data": info_list}
 
-    if constants.open_multicast_tonkiang:
+    if config.open_multicast_foodie:
         region_type_list_len = len(region_type_list)
         pbar = tqdm_asyncio(total=region_type_list_len, desc="Multicast search")
         if callback:
             callback(
-                f"正在进行Tonkiang组播更新, {len(names)}个频道, 共{region_type_list_len}个地区",
+                f"正在进行Foodie组播更新, {len(names)}个频道, 共{region_type_list_len}个地区",
                 0,
             )
         start_time = time()

@@ -5,7 +5,8 @@ sys.path.append(os.path.dirname(sys.path[0]))
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
-from utils.config import config, resource_path, save_config, copy_config
+from utils.config import config
+from utils.tools import resource_path
 from main import UpdateSource
 import asyncio
 import threading
@@ -57,19 +58,18 @@ class TkinterUI:
             "response_time_weight": self.default_ui.response_time_weight_scale.get(),
             "resolution_weight": self.default_ui.resolution_weight_scale.get(),
             "ipv_type": self.default_ui.ipv_type_combo.get(),
-            "domain_blacklist": self.default_ui.domain_blacklist_text.get(1.0, tk.END),
             "url_keywords_blacklist": self.default_ui.url_keywords_blacklist_text.get(
                 1.0, tk.END
             ),
             "open_subscribe": self.subscribe_ui.open_subscribe_var.get(),
             "subscribe_urls": self.subscribe_ui.subscribe_urls_text.get(1.0, tk.END),
             "open_multicast": self.multicast_ui.open_multicast_var.get(),
-            "open_multicast_tonkiang": self.multicast_ui.open_multicast_tonkiang_var.get(),
+            "open_multicast_foodie": self.multicast_ui.open_multicast_foodie_var.get(),
             "open_multicast_fofa": self.multicast_ui.open_multicast_fofa_var.get(),
             "multicast_region_list": self.multicast_ui.region_list_combo.get(),
             "multicast_page_num": self.multicast_ui.page_num_entry.get(),
             "open_hotel": self.hotel_ui.open_hotel_var.get(),
-            "open_hotel_tonkiang": self.hotel_ui.open_hotel_tonkiang_var.get(),
+            "open_hotel_foodie": self.hotel_ui.open_hotel_foodie_var.get(),
             "open_hotel_fofa": self.hotel_ui.open_hotel_fofa_var.get(),
             "hotel_region_list": self.hotel_ui.region_list_combo.get(),
             "hotel_page_num": self.hotel_ui.page_num_entry.get(),
@@ -81,7 +81,7 @@ class TkinterUI:
 
         for key, value in config_values.items():
             config.set("Settings", key, str(value))
-        save_config()
+        config.save()
         messagebox.showinfo("提示", "保存成功")
 
     def change_state(self, state):
@@ -112,8 +112,9 @@ class TkinterUI:
             self.progress_label.pack_forget()
 
     def on_run_update(self):
+        loop = asyncio.new_event_loop()
+
         def run_loop():
-            loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
             loop.run_until_complete(self.run_update())
 
@@ -254,7 +255,7 @@ def get_root_location(root):
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     width = 550
-    height = 720
+    height = 750
     x = (screen_width / 2) - (width / 2)
     y = (screen_height / 2) - (height / 2)
     return (width, height, x, y)
@@ -268,5 +269,5 @@ if __name__ == "__main__":
     screen_height = root.winfo_screenheight()
     root.geometry("%dx%d+%d+%d" % get_root_location(root))
     root.iconbitmap(resource_path("static/images/favicon.ico"))
-    root.after(0, copy_config)
+    root.after(0, config.copy)
     root.mainloop()

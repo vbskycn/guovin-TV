@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 import webbrowser
-from utils.config import resource_path
+from utils.tools import resource_path
 
 
 class AboutUI:
@@ -44,14 +44,14 @@ class AboutUI:
         project_label.pack()
         project_link = tk.Label(
             project_row_column2,
-            text="https://github.com/Guovin/TV",
+            text="https://github.com/Guovin/iptv-api",
             fg="blue",
             cursor="hand2",
         )
         project_link.pack()
         project_link.bind(
             "<Button-1>",
-            lambda e: webbrowser.open_new_tab("https://github.com/Guovin/TV"),
+            lambda e: webbrowser.open_new_tab("https://github.com/Guovin/iptv-api"),
         )
 
         disclaimer_label = tk.Label(
@@ -68,7 +68,9 @@ class AboutUI:
         image_label.image = photo
         image_label.pack()
 
-        appreciate_label = tk.Label(about_window, text="请我喝杯咖啡☕️吧~")
+        appreciate_label = tk.Label(
+            about_window, text="开发维护不易，请我喝杯咖啡☕️吧~"
+        )
         appreciate_label.pack()
 
         confirm_button = tk.ttk.Button(

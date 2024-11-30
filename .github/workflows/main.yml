@@ -9,7 +9,6 @@ on:
       - master
       - dev
       - gd
-      - gd-test
 jobs:
   push:
     runs-on: ${{ matrix.operating-system }}
@@ -24,10 +23,10 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ env.BRANCH_NAME }}
-      - name: Run with setup-python 3.8
+      - name: Run with setup-python 3.13
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
+          python-version: '3.13'
           update-environment: true
           cache: 'pipenv'
       - name: Check open_driver config
@@ -36,37 +35,40 @@ jobs:
           echo "OPEN_DRIVER=$(python -c '
           try:
             from utils.config import config
-            open_driver = config.getboolean("Settings", "open_driver", fallback=True)
+            open_driver = config.open_driver
           except:
             open_driver = False
           print(open_driver)')" >> $GITHUB_ENV
-      - name: Check open_ffmpeg config
-        id: check_ffmpeg
-        run: |
-          echo "OPEN_FFMPEG=$(python -c '
-          try:
-            from utils.config import config
-            open_ffmpeg = config.getboolean("Settings", "open_ffmpeg", fallback=True)
-          except:
-            open_ffmpeg = False
-          print(open_ffmpeg)')" >> $GITHUB_ENV
+      # - name: Check open_ffmpeg config
+      #   id: check_ffmpeg
+      #   run: |
+      #     echo "OPEN_FFMPEG=$(python -c '
+      #     try:
+      #       from utils.config import config
+      #       open_ffmpeg = config.open_ffmpeg
+      #     except:
+      #       open_ffmpeg = False
+      #     print(open_ffmpeg)')" >> $GITHUB_ENV
       - name: Set up Chrome
-        if: env.OPEN_DRIVER == 'True' || env.OPEN_DRIVER == 'true'
+        if: env.OPEN_DRIVER == 'True'
         uses: browser-actions/setup-chrome@latest
         with:
           chrome-version: stable
       - name: Download chrome driver
-        if: env.OPEN_DRIVER == 'True' || env.OPEN_DRIVER == 'true'
+        if: env.OPEN_DRIVER == 'True'
         uses: nanasess/setup-chromedriver@master
-      - name: Install FFmpeg
-        if: env.OPEN_FFMPEG == 'True' || env.OPEN_FFMPEG == 'true'
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      # - name: Install FFmpeg
+      #   if: env.OPEN_FFMPEG == 'True'
+      #   run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - name: Install pipenv
         run: pip3 install --user pipenv
       - name: Install dependecies
-        run: pipenv --python 3.8 && pipenv install
-      - name: Build
-        run: pipenv run build
+        run: pipenv --python 3.13 && pipenv install --deploy
+      - name: Install selenium
+        if: env.OPEN_DRIVER == 'True'
+        run: pipenv install selenium
+      - name: Update
+        run: pipenv run dev
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -75,7 +77,7 @@ jobs:
           final_file=$(python -c '
           try: 
             from utils.config import config
-            final_file = config.get("Settings", "final_file", fallback="output/result.txt")
+            final_file = config.final_file
           except: 
             final_file = "output/result.txt"
           print(final_file)')
@@ -83,7 +85,7 @@ jobs:
           try: 
             from utils.config import config
             import os
-            final_file = config.get("Settings", "final_file", fallback="output/result.txt")
+            final_file = config.final_file
             final_m3u_file = os.path.splitext(final_file)[0] + ".m3u"
           except: 
             final_m3u_file = "output/result.m3u"
@@ -91,22 +93,14 @@ jobs:
           if [[ -f "$final_file" ]]; then
             git add -f "$final_file"
           fi
-          if [[ -f "result.txt" ]]; then
-            git add -f "result.txt"
-          fi
           if [[ -f "$final_m3u_file" ]]; then
             git add -f "$final_m3u_file"
           fi
-          if [[ -f "result.m3u" ]]; then
-            git add -f "result.m3u"
+          if [[ -f "output/cache.pkl" ]]; then
+            git add -f "output/cache.pkl"
           fi
-          if [[ -f "output/result_cache.pkl" ]]; then
-            git add -f "output/result_cache.pkl"
-          fi
-          if [[ -f "output/user_result.log" ]]; then
-            git add -f "output/user_result.log"
-          elif [[ -f "output/result.log" ]]; then
-            git add -f "output/result.log"
+          if [[ -f "output/sort.log" ]]; then
+            git add -f "output/sort.log"
           fi
           if [[ -f "updates/fofa/fofa_hotel_region_result.pkl" ]]; then
             git add -f "updates/fofa/fofa_hotel_region_result.pkl"

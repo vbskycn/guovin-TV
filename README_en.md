@@ -1,9 +1,9 @@
 <div align="center">
   <img src="./static/images/logo.png" alt="logo"/>
-  <h1 align="center">IPTV live TV source update tool</h1>
+  <h1 align="center">IPTV-API</h1>
 </div>
 
-<div align="justify">Customize the channel menu, automatically obtain and update the latest live source interfaces based on the template channels, and generate available interface files after speed test verification.</div>
+<div align="center">Customize channels, automatically obtain live source interface, and generate usable results after speed test</div>
 <div align="justify">Default results include: 📺CCTV Channel, 💰CCTV Pay Channel, 📡Satellite TV Channel, 🏠Guangdong Channel, 🌊Hong Kong · Macao · Taiwan Channel, 🎬Movie Channel, 🎥Migu Live Streaming, 🏀Sports Channel, 🪁Animation channel, 🎮Game channel, 🎵Music channel, 🏛Classic Theater.</div>
 
 <details>
@@ -21,7 +21,11 @@
   </div>
   <br>
   <div>
-  🏠Guangdong Channel: 广东珠江, 广东体育, 广东新闻, 广东卫视, 大湾区卫视, 广州影视, 广州竞赛, 江门综合, 江门侨乡生活, 佛山综合, 深圳卫视, 汕头综合, 汕头经济, 汕头文旅, 茂名综合, 茂名公共
+  ☘️Guangdong Channel: 广东珠江, 广东体育, 广东新闻, 广东民生, 广东卫视, 大湾区卫视, 广州综合, 广州影视, 广州竞赛, 江门综合, 江门侨乡生活, 佛山综合, 深圳卫视, 汕头综合, 汕头经济, 汕头文旅, 茂名综合, 茂名公共
+  </div>
+  <br>
+  <div>
+  ☘️Local channels in each province
   </div>
   <br>
   <div>
@@ -58,46 +62,68 @@
 </details>
 <br>
 <p align="center">
-  <a href="https://github.com/Guovin/TV/releases/latest">
-    <img src="https://img.shields.io/github/v/release/guovin/tv" />
+  <a href="https://github.com/Guovin/iptv-api/releases/latest">
+    <img src="https://img.shields.io/github/v/release/guovin/iptv-api" />
   </a>
   <a href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/python-%20%3E%3D%203.8-47c219" />
+    <img src="https://img.shields.io/badge/python-%20%3D%203.13-47c219" />
   </a>
-  <a href="https://github.com/Guovin/TV/releases/latest">
-    <img src="https://img.shields.io/github/downloads/guovin/tv/total" />
+  <a href="https://github.com/Guovin/iptv-api/releases/latest">
+    <img src="https://img.shields.io/github/downloads/guovin/iptv-api/total" />
+  </a>
+  <a href="https://hub.docker.com/repository/docker/guovern/iptv-api">
+    <img src="https://img.shields.io/docker/pulls/guovern/iptv-api?label=docker:iptv-api" />
   </a>
   <a href="https://hub.docker.com/repository/docker/guovern/tv-requests">
     <img src="https://img.shields.io/docker/pulls/guovern/tv-requests?label=docker:requests" />
   </a>
-   <a href="https://hub.docker.com/repository/docker/guovern/tv-driver">
+  <a href="https://hub.docker.com/repository/docker/guovern/tv-driver">
     <img src="https://img.shields.io/docker/pulls/guovern/tv-driver?label=docker:driver" />
+  </a>
+  <a href="https://github.com/Guovin/iptv-api/fork">
+    <img src="https://img.shields.io/github/forks/guovin/iptv-api" />
   </a>
 </p>
 
 [中文](./README.md) | English
 
+- [✅ Features](#features)
+- [🔗 Latest results](#latest-results)
+- [⚙️ Config parameter](./docs/config_en.md)
+- [🚀 Quick Start](#quick-start)
+- [📖 Detailed Tutorial](./docs/tutorial_en.md)
+- [🗓️ Changelog](./CHANGELOG.md)
+- [💰️ Appreciate](#appreciate)
+- [👀 Follow](#follow)
+- [📣 Disclaimer](#disclaimer)
+- [⚖️ License](#license)
+
 ## Features
 
-- Customize the template to generate the channel you want
-- Supports multiple source acquisition methods: multicast source, hotel source, subscription source, keyword search
-- Interface speed testing and verification, with priority on response time and resolution, filtering out ineffective interfaces
-- Scheduled execution at 6:00 AM and 18:00 PM Beijing time daily
-- Supports various execution methods: workflows, command line, GUI software, Docker(amd64/arm64)
-- For more features, see [Config parameter](./docs/config_en.md)
+- ✅ Customize the template to generate the channel you want
+- ✅ Supports multiple source acquisition methods: multicast source, hotel source, subscription source, keyword search
+- ✅ Interface speed testing and verification, with priority on response time and resolution, filtering out ineffective interfaces
+- ✅ Preferences: IPv6, priority and quantity of interface source sorting, and interface whitelist
+- ✅ Scheduled execution at 6:00 AM and 18:00 PM Beijing time daily
+- ✅ Supports various execution methods: workflows, command line, GUI software, Docker(amd64/arm64/arm v7)
+- ✨ For more features, see [Config parameter](./docs/config_en.md)
 
-## Latest results：
+## Latest results
 
 - Interface source:
 
 ```bash
-https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/output/result.m3u
+https://ghproxy.net/raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.m3u
+```
+
+```bash
+https://ghproxy.net/raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt
 ```
 
 - Data source:
 
 ```bash
-https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/source.json
+https://ghproxy.net/raw.githubusercontent.com/Guovin/iptv-api/gd/source.json
 ```
 
 ## Config
@@ -113,14 +139,28 @@ Fork this project and initiate workflow updates, detailed steps are available at
 ### Method 2: Command Line
 
 ```python
-pip3 install pipenv
-pipenv install
-pipenv run build
+pip install pipenv
+```
+
+```python
+pipenv install --dev
+```
+
+Start update:
+
+```python
+pipenv run dev
+```
+
+Start service:
+
+```python
+pipenv run service
 ```
 
 ### Method 3: GUI Software
 
-1. Download [Update tool software](https://github.com/Guovin/TV/releases), open the software, click update to complete the update
+1. Download [IPTV-API update software](https://github.com/Guovin/iptv-api/releases), open the software, click update to complete the update
 
 2. Or run the following command in the project directory to open the GUI software:
 
@@ -128,58 +168,90 @@ pipenv run build
 pipenv run ui
 ```
 
-<img src="./docs/images/ui.png" alt="Update tool software" title="Update tool software" style="height:600px" />
+<img src="./docs/images/ui.png" alt="IPTV-API update software" title="IPTV-API update software" style="height:600px" />
 
 ### Method 4: Docker
 
-- requests: Lightweight, low performance requirements, fast update speed, stability uncertain (recommend using this version for the subscription source)
-- driver: Higher performance requirements, slower update speed, high stability and success rate. Set open_driver = False to switch to the request version (recommended for hotel sources, multicast sources, and online searches)
+- iptv-api (Full version): Higher performance requirements, slower update speed, high stability and success rate. Set open_driver = False to switch to the lite running mode (recommended for hotel sources, multicast sources, and online searches)
+- iptv-api:lite (Condensed version): Lightweight, low performance requirements, fast update speed, stability uncertain (recommend using this version for the subscription source)
 
-It's recommended to try each one and choose the version that suits you.
+It's recommended to try each one and choose the version that suits you
+
+1. Pull the image:
+
+- iptv-api
 
 ```bash
-1. Pull the image:
-For requests version:
-docker pull guovern/tv-requests:latest
+docker pull guovern/iptv-api:latest
+```
 
-For driver version:
-docker pull guovern/tv-driver:latest
+- iptv-api:lite
+
+```bash
+docker pull guovern/iptv-api:lite
+```
 
 2. Run the container:
-docker run -d -p 8000:8000 guovern/tv-requests or driver
+
+- iptv-api
+
+```bash
+docker run -d -p 8000:8000 guovern/iptv-api
+```
+
+- iptv-api:lite
+
+```bash
+docker run -d -p 8000:8000 guovern/iptv-api:lite
+```
 
 Volume Mount Parameter (Optional):
 This allows synchronization of files between the host machine and the container. Modifying templates, configurations, and retrieving updated result files can be directly operated in the host machine's folder.
 
-config:
--v <path>/config:/tv-requests/config or tv-driver/config
+Taking the host path /etc/docker as an example:
 
-result:
--v <path>/output:/tv-requests/output or tv-driver/output
+- iptv-api：
 
-For example: docker run -v /etc/docker/config:/tv-requests/config -v /etc/docker/output:/tv-requests/output -d -p 8000:8000 guovern/tv-requests
-
-3. Check the update results: Visit (domain:8000)
+```bash
+docker run -v /etc/docker/config:/iptv-api/config -v /etc/docker/output:/iptv-api/output -d -p 8000:8000 guovern/iptv-api
 ```
 
-#### Note: Link to the result file after updates of methods one to three: http://local ip:8000 or http://localhost:8000
+- iptv-api:lite：
+
+```bash
+docker run -v /etc/docker/config:/iptv-api-lite/config -v /etc/docker/output:/iptv-api-lite/output -d -p 8000:8000 guovern/iptv-api:lite
+```
+
+3. Update results:
+
+- API address: ip:8000
+- M3u api：ip:8000/m3u
+- Txt api：ip:8000/txt
+- API content: ip:8000/content
+- Speed test log: ip:8000/log
 
 ## Changelog
 
 [Changelog](./CHANGELOG.md)
 
-## License
-
-[MIT](./LICENSE) License &copy; 2024-PRESENT [Govin](https://github.com/guovin)
-
 ## Appreciate
 
-<div>Please buy me a cup of coffee☕️~</div>
+<div>Development and maintenance are not easy, please buy me a coffee ~</div>
 
 | Alipay                                | Wechat                                    |
 | ------------------------------------- | ----------------------------------------- |
 | ![Alipay](./static/images/alipay.jpg) | ![Wechat](./static/images/appreciate.jpg) |
 
+## Follow
+
+Wechat public account search for Govin, or scan the code to receive updates and learn more tips:
+
+![Wechat public account](./static/images/qrcode.jpg)
+
 ## Disclaimer
 
 This project is for learning and communication purposes only. All interface data comes from the internet. If there is any infringement, please contact us for removal.
+
+## License
+
+[MIT](./LICENSE) License &copy; 2024-PRESENT [Govin](https://github.com/guovin)
